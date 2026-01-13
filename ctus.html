@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Yohm Technology LLC</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0038a8; 
+            --navy: #011d33;
+            --form-blue: #002a70;
+            --input-bg: rgba(255, 255, 255, 0.1);
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
+        h1, h2, h3, h4, .brand-main { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- HEADER --- */
+        header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: #f1f7ff; padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- CONTACT CONTENT SECTION --- */
+        .contact-content { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: flex; gap: 80px; align-items: flex-start; }
+        
+        /* Left Info */
+        .contact-info-left { flex: 1; padding-top: 40px; }
+        .contact-info-left h2 { font-size: 32px; color: var(--navy); font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+        .contact-info-left h4 { color: var(--brand-blue); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        .contact-info-left p { color: #666; font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+        .contact-info-left .email-link { display: flex; align-items: center; gap: 10px; margin-top: 20px; color: #666; font-size: 15px; }
+        .contact-info-left .email-link i { color: var(--brand-blue); }
+
+        /* Right Form Card */
+        .contact-form-right { flex: 1.2; background-color: var(--form-blue); border-radius: 25px; padding: 50px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+        .contact-form-right h2 { color: white; font-size: 28px; margin-bottom: 30px; font-weight: 700; }
+        
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .full-width { grid-column: span 2; }
+
+        input, textarea { 
+            width: 100%; background: var(--input-bg); border: 1px solid rgba(255,255,255,0.2); 
+            padding: 15px; border-radius: 8px; color: white; font-family: inherit; outline: none; transition: 0.3s;
+        }
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.6); }
+        input:focus, textarea:focus { border-color: var(--white); background: rgba(255,255,255,0.15); }
+
+        .captcha-box { 
+            background: white; border-radius: 5px; padding: 10px; display: flex; align-items: center; 
+            justify-content: space-between; margin: 20px 0; width: 100%; max-width: 300px;
+        }
+        .captcha-text { font-size: 13px; color: #333; display: flex; align-items: center; gap: 10px; }
+        .captcha-icon { width: 30px; }
+
+        .btn-submit { 
+            background: white; color: var(--form-blue); border: none; padding: 12px 35px; 
+            border-radius: 6px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 14px; 
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* --- MAP SECTION --- */
+        .map-section { width: 100%; height: 500px; margin-top: 50px; border: none; }
+        iframe { width: 100%; height: 100%; border: 0; filter: grayscale(20%); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--navy); color: white; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-logo { margin-bottom: 25px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 15px; text-transform: uppercase; }
+        .footer-col ul li { margin-bottom: 12px; opacity: 0.7; font-size: 13px; transition: 0.3s; cursor: pointer; list-style: none; display: flex; align-items: center; }
+        .footer-col ul li i { margin-right: 10px; color: var(--brand-blue); font-size: 10px; }
+        .footer-col ul li:hover { opacity: 1; transform: translateX(5px); color: var(--brand-blue); }
+        .social-icons { display: flex; gap: 15px; margin-top: 30px; }
+        .social-icons i { background: #fff; color: var(--navy); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+        @media (max-width: 992px) {
+            .header-flex { flex-direction: column; gap: 10px; text-align: center; }
+            .contact-content { flex-direction: column; padding: 60px 20px; gap: 40px; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100">
+                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" stroke-width="8"/>
+                        <path d="M50 35 V 15" stroke-width="10" stroke="#fff" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="contact.html" style="color: var(--brand-blue);">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>Contact us</h1>
+            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity: 0.5;"></i> <span>Contact Us</span></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="contact-content">
+        <!-- Info Column -->
+        <div class="contact-info-left">
+            <h2>Yohm Technology LLC</h2>
+            <h4>US Headquarters</h4>
+            <p>1201, 1007 N Orange St. 4th Floor,</p>
+            <p>Wilmington, DE, New Castle, US, 19801</p>
+            
+            <div class="email-link">
+                <i class="fas fa-envelope"></i>
+                <span>service@yohmtechnology.com</span>
+            </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form-right">
+            <h2>Request a callback</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group"><input type="text" placeholder="First name"></div>
+                    <div class="form-group"><input type="text" placeholder="Last name"></div>
+                    <div class="form-group"><input type="email" placeholder="Email address"></div>
+                    <div class="form-group"><input type="text" placeholder="Phone Number"></div>
+                    <div class="form-group full-width">
+                        <textarea rows="5" placeholder="Comments"></textarea>
+                    </div>
+                </div>
+
+                <!-- Google reCAPTCHA Placeholder -->
+                <div class="captcha-box">
+                    <div class="captcha-text">
+                        <input type="checkbox" style="width: 20px; height: 20px;">
+                        I'm not a robot
+                    </div>
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="recaptcha" class="captcha-icon">
+                </div>
+
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Full Width Map Section -->
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.03478950645!2d-75.5512296!3d39.7494548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fd6b0d91244f%3A0x6b0933748269d95d!2s1007%20N%20Orange%20St%2C%20Wilmington%2C%20DE%2019801!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="brand-link footer-logo">
+                    <div class="brand-text">
+                        <span class="brand-main" style="color:#fff; font-size: 18px;">YOHM TECHNOLOGY</span>
+                    </div>
+                </div>
+                <h4>OUR LOCATION</h4>
+                <p style="font-size: 13px; opacity: 0.7;">1201, 1007 N Orange St. 4th Floor,<br>Wilmington, DE, New Castle, US, 19801</p>
+                <p style="font-size: 13px; opacity: 0.7; margin-top: 10px;"><i class="fas fa-envelope"></i> service@yohmtechnology.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Home</li>
+                    <li><i class="fas fa-chevron-right"></i>About Us</li>
+                    <li><i class="fas fa-chevron-right"></i>Refer and Earn</li>
+                    <li><i class="fas fa-chevron-right"></i>Refund Policy</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>OUR SERVICES</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Recruitment & Interview process</li>
+                    <li><i class="fas fa-chevron-right"></i>IT Job Placement</li>
+                    <li><i class="fas fa-chevron-right"></i>Career Guidance</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SPECIALITIES</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Interview Support</li>
+                    <li><i class="fas fa-chevron-right"></i>Training</li>
+                    <li><i class="fas fa-chevron-right"></i>Staffing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-icons" style="max-width: 1300px; margin: 30px auto 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <p style="text-align: center; margin-top: 20px; font-size: 12px; opacity: 0.5;">Copyright © 2026 Yohm Technology LLC, all right reserved</p>
+    </footer>
+
+</body>
+</html>
