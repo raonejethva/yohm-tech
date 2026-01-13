@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yohm Technology | Specialized IT Placement & Staffing Agency</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0038a8; 
+            --navy: #011d33;
+            --card-light: #eff6ff;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, .brand-main { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HEADER --- */
+        header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; }
+        .logo-box { width: 48px; height: 48px; background: var(--brand-blue); border-radius: 12px; display: flex; justify-content: center; align-items: center; }
+        .logo-svg { width: 28px; height: 28px; fill: none; stroke: white; stroke-width: 8; }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-main { font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2.2px; margin-top: 4px; }
+
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        /* --- BREADCRUMB HEADER (From Image) --- */
+        .page-header { background-color: #f1f7ff; padding: 40px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- STAFFING CONTENT SECTION --- */
+        .staffing-section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .staffing-text p { margin-bottom: 25px; color: #666; font-size: 15px; line-height: 1.8; text-align: justify; }
+
+        /* --- JOB ROLES GRID (MATCHING IMAGE) --- */
+        .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
+        .role-card { 
+            padding: 25px 10px; border-radius: 15px; text-align: center; 
+            font-weight: 700; font-size: 13px; text-transform: uppercase; 
+            letter-spacing: 0.5px; transition: 0.3s; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            min-height: 80px;
+        }
+
+        /* Alternating Colors logic from image */
+        .card-dark { background-color: var(--navy); color: white; }
+        .card-light { background-color: var(--card-light); color: #555; }
+        
+        .role-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* Row 3 Centering (3 items) */
+        .bottom-row { grid-column: span 4; display: flex; justify-content: center; gap: 20px; margin-top: 0px; }
+        .bottom-row .role-card { width: calc(25% - 15px); }
+
+        /* --- CTA BANNER --- */
+        .cta-banner { background-color: #f1f7ff; padding: 60px 20px; margin-top: 100px; border-radius: 20px; }
+        .cta-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .cta-text h2 { font-size: 32px; color: var(--navy); line-height: 1.3; }
+        .btn-cta { background: var(--brand-blue); color: white; padding: 15px 35px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; font-size: 14px; }
+
+        /* --- FOOTER --- */
+        footer { background: #010c16; color: white; padding: 60px 20px; text-align: center; }
+
+        @media (max-width: 992px) {
+            .role-grid { grid-template-columns: repeat(2, 1fr); }
+            .bottom-row { grid-template-columns: repeat(2, 1fr); display: grid; }
+            .bottom-row .role-card { width: 100%; }
+            .cta-flex { flex-direction: column; text-align: center; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100">
+                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" />
+                        <path d="M50 35 V 20" stroke-width="10" stroke="#fff" />
+                        <path d="M35 15 L 50 25 L 65 15" stroke-width="10" stroke="#fff" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="#">Home</a>
+                <a href="#staffing">Staffing</a>
+                <button style="background:var(--brand-blue); color:white; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">CONNECT</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Header -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>Staffing</h1>
+            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px;"></i> <span>Staffing</span></div>
+        </div>
+    </section>
+
+    <!-- Main Staffing Section -->
+    <section class="staffing-section" id="staffing">
+        <div class="staffing-text reveal">
+            <p>Our holistic staffing services encompass a multi-faceted approach to sourcing, selecting, and nurturing the finest candidates tailored to our client's unique needs.</p>
+            <p>Beyond candidate selection, <strong>Yohm Technology</strong> extends our commitment by offering training and development initiatives to augment the skills and elevate the performance of existing candidates. Our unwavering dedication to continuous growth and employee enhancement contributes to fostering a robust and productive workforce.</p>
+            <p>Our specialized expertise spans data analysis and operations, business analysis, data science, artificial intelligence, and other critical domains. This specialization equips our clients with the niche knowledge essential for thriving in today’s dynamic market landscape.</p>
+            <p>Overall, Yohm Technology provides tailored solutions that precisely meet our clients' needs through the strategic identification and retention of apt talent, businesses can not only attain their objectives but also flourish within their respective industries.</p>
+        </div>
+
+        <!-- Job Roles Grid (Replicating Image exactly) -->
+        <div class="role-grid reveal">
+            <!-- Row 1 -->
+            <div class="role-card card-dark">Data Analyst</div>
+            <div class="role-card card-light">Business Analyst</div>
+            <div class="role-card card-dark">Software Developer</div>
+            <div class="role-card card-light">Web Developer</div>
+            
+            <!-- Row 2 -->
+            <div class="role-card card-light">System Engineer</div>
+            <div class="role-card card-dark">AWS Cloud Engineer</div>
+            <div class="role-card card-light">Python Developer</div>
+            <div class="role-card card-dark">DevOps Engineer</div>
+
+            <!-- Row 3 (Bottom Row) -->
+            <div class="bottom-row">
+                <div class="role-card card-dark">QA Automation / Manual</div>
+                <div class="role-card card-light">Project Manager</div>
+                <div class="role-card card-dark">Cyber Security Analyst</div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner reveal">
+            <div class="cta-flex">
+                <div class="cta-text">
+                    <h2>Did not find what you are searching for?<br>Connect with us:</h2>
+                </div>
+                <button class="btn-cta">Connect with Us</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yohm Technology | Ω Precision Staffing Solutions</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
