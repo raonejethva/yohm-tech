@@ -45,13 +45,12 @@
         .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
         .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
 
-        /* Navigation Menu */
-        .nav-menu { display: flex; gap: 20px; align-items: center; }
-        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; padding: 5px 0; }
-        .nav-menu a:hover { color: var(--brand-blue); }
+        .nav-menu { display: flex; gap: 15px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 11px; text-transform: uppercase; color: var(--navy); transition: 0.3s; padding: 5px 0; }
+        .nav-menu a:hover { color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); }
 
-        .nav-actions { display: flex; align-items: center; gap: 15px; }
-        .btn-contact-main { background: var(--brand-blue); color: white; padding: 11px 24px; border-radius: 6px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 12px; text-transform: uppercase; }
+        .nav-actions { display: flex; align-items: center; }
+        .btn-contact-main { background: var(--brand-blue); color: white; padding: 10px 24px; border-radius: 6px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 12px; text-transform: uppercase; }
         .btn-contact-main:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 56, 168, 0.2); background: var(--navy); }
 
         .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; z-index: 2100; }
@@ -86,6 +85,17 @@
         .wwd-text { flex: 1.5; }
         .wwd-text h2 { font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 800; }
 
+        /* --- ABOUT US (NEW SECTION) --- */
+        #about { padding: 120px 20px; background-color: var(--light-bg); }
+        .about-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 80px; }
+        .about-text { flex: 1.5; }
+        .about-text h4 { color: var(--brand-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
+        .about-text h2 { font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 800; line-height: 1.2; }
+        .about-text p { color: #555; margin-bottom: 15px; font-size: 15px; text-align: justify; }
+        .about-image { flex: 1; position: relative; }
+        .about-img-large { width: 90%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .about-img-small { width: 60%; border-radius: 20px; position: absolute; bottom: -30px; left: -20px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
         /* --- SUCCESS CHART --- */
         #success { background-color: var(--navy); padding: 100px 20px; color: white; position: relative; overflow: hidden; }
         .success-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 60px; position: relative; z-index: 2; }
@@ -97,20 +107,20 @@
         .progress-fill { width: 0%; height: 100%; background: #689f00; transition: width 2s ease-out; }
 
         /* --- SERVICES --- */
-        #services { padding: 100px 20px; max-width: 1400px; margin: 0 auto; background: var(--light-bg); }
+        #services { padding: 100px 20px; max-width: 1400px; margin: 0 auto; background: #fff; }
         .services-flex { display: flex; gap: 80px; flex-wrap: wrap; }
         .services-info-left { flex: 1; min-width: 320px; }
         .services-info-left h2 { font-size: 40px; color: var(--navy); font-weight: 800; margin-bottom: 20px; }
         .service-img-small { width: 100%; max-width: 330px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 30px; }
         .services-grid-right { flex: 2; min-width: 500px; }
         .custom-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .s-card { background: var(--white); border-radius: 20px; padding: 40px 10px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
-        .icon-circle { width: 75px; height: 75px; border: 2px solid var(--navy); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; font-size: 28px; color: var(--brand-blue); background: var(--card-blue); }
+        .s-card { background: var(--card-blue); border-radius: 20px; padding: 40px 10px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
+        .icon-circle { width: 75px; height: 75px; border: 2px solid var(--navy); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; font-size: 28px; color: var(--brand-blue); background: #fff; }
         .card-training { grid-column: 2; }
         .card-staffing { grid-column: 3; }
 
         /* --- STAFFING ROLES --- */
-        #staffing { padding: 100px 20px; background: #fff; max-width: 1200px; margin: 0 auto; }
+        #staffing { padding: 100px 20px; background: var(--light-bg); max-width: 1200px; margin: 0 auto; border-radius: 30px; }
         .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .role-btn { padding: 25px 10px; border-radius: 12px; text-align: center; font-weight: 700; font-size: 11px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; transition: 0.3s; cursor: pointer; }
         .role-dark { background: var(--navy); color: white; }
@@ -123,12 +133,10 @@
         .why-icon { width: 100px; height: 100px; background: white; border-radius: 50%; position: absolute; top: -50px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; font-size: 40px; color: var(--brand-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
         /* --- VISION --- */
-        #vision { background-color: #f8fafc; padding: 120px 20px; }
+        #vision { background-color: #fff; padding: 120px 20px; }
         .vision-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
         .vision-text { flex: 1.5; min-width: 350px; }
-        .vision-text h2 { font-size: 40px; color: var(--navy); margin-bottom: 25px; font-weight: 800; }
-        .vision-text p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
-        .vision-image-side { flex: 1; position: relative; display: flex; justify-content: center; min-width: 350px; }
+        .vision-image-side { flex: 1; position: relative; display: flex; justify-content: center; }
         .vision-bg-box { position: absolute; width: 320px; height: 320px; background: var(--navy); border-radius: 30px; transform: rotate(-10deg); z-index: 1; top: 15px; }
         .vision-img-main { position: relative; z-index: 2; width: 350px; height: 350px; border-radius: 30px; object-fit: cover; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
@@ -151,8 +159,9 @@
             }
             .nav-menu.active { right: 0; }
             .nav-actions { display: none; }
-            .hero-flex, .success-inner, #wwd .wwd-container, .why-grid, .services-flex, .vision-container, .role-grid, .footer-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
-            .diamond-container, .wwd-diamond, .vision-img-main { width: 300px; height: 300px; margin: 0 auto; }
+            .hero-flex, .success-inner, #wwd .wwd-container, .about-container, .why-grid, .services-flex, .vision-container, .role-grid, .footer-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
+            .diamond-container, .wwd-diamond, .vision-img-main, .about-img-large { width: 300px; height: 300px; margin: 0 auto; }
+            .about-img-small { display: none; }
             .timeline-container { flex-wrap: wrap; gap: 20px; justify-content: center; }
             .timeline-container::before { display: none; }
             .custom-card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -178,11 +187,12 @@
                 </div>
             </a>
 
-            <!-- Navigation Links -->
+            <!-- NAV MENU -->
             <nav class="nav-menu" id="nav-list">
                 <a href="index.html">Home</a>
-                <a href="index.html#success">Success</a>
-                <a href="index.html#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#success">Success</a>
+                <a href="#services">Services</a>
                 <a href="staffing.html">Staffing</a>
                 <a href="refer.html">Refer & Earn</a>
                 <a href="contact.html">Contact Us</a>
@@ -222,7 +232,6 @@
             <div class="logo-item"><i class="fab fa-apple" style="color:#000"></i><span>Apple</span></div>
             <div class="logo-item"><i class="fab fa-facebook" style="color:#1877F2"></i><span>Meta</span></div>
             <div class="logo-item"><i class="fab fa-paypal" style="color:#003087"></i><span>PayPal</span></div>
-            <!-- Duplicates for loop -->
             <div class="logo-item"><i class="fab fa-google" style="color:#4285F4"></i><span>Google</span></div>
             <div class="logo-item"><i class="fab fa-microsoft" style="color:#737373"></i><span>Microsoft</span></div>
             <div class="logo-item"><i class="fab fa-amazon" style="color:#FF9900"></i><span>Amazon</span></div>
@@ -243,8 +252,24 @@
             <div class="wwd-text reveal">
                 <span>What we do?</span>
                 <h2>Let Yohm Tech, Find you the right job</h2>
-                <p>As the flagship of innovation in the placement industry, Yohm Technology Placement brings a distinct approach to the forefront. Rooted in cutting-edge strategies, we specialize in customized staffing solutions.</p>
-                <a href="contact.html" class="btn-contact-main" style="display:inline-block; margin-top:20px;">Learn More</a>
+                <p>As the flagship of innovation in the placement industry, Yohm Technology Placement brings a distinct approach to the forefront.</p>
+                <a href="contact.html" class="btn-contact-main" style="display:inline-block; margin-top:20px;">Contact Experts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="reveal">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="About Main" class="about-img-large">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="About Small" class="about-img-small">
+            </div>
+            <div class="about-text">
+                <h4>About Company</h4>
+                <h2>Let us be your trusted partner</h2>
+                <p>Yohm Technology stands out as a premier job-seeking service, distinguished by our extensive nationwide searches within the United States and global tech hubs. Our mission is to identify the most suitable candidates for a wide range of technical job roles.</p>
+                <p>Leveraging our in-depth experience in international recruitment law, we extend reach beyond national borders to place qualified individuals with STEM OPT, H1B, and GC visas.</p>
             </div>
         </div>
     </section>
@@ -254,7 +279,7 @@
         <div class="success-inner">
             <div class="success-content">
                 <h2 class="reveal">Proven Results</h2>
-                <p style="margin-bottom:60px; opacity:0.8;">Since establishment, Yohm Technology has facilitated the successful placement of 870+ candidates.</p>
+                <p style="margin-bottom:60px; opacity:0.8;">Facilitated the successful placement of 870+ candidates.</p>
                 <div class="timeline-container reveal">
                     <div class="timeline-item"><div class="year-node">2021</div><div style="font-weight:800">60+</div></div>
                     <div class="timeline-item"><div class="year-node">2022</div><div style="font-weight:800">180+</div></div>
@@ -270,13 +295,13 @@
         </div>
     </section>
 
-    <!-- SERVICES (Re-arranged) -->
+    <!-- SERVICES -->
     <section id="services">
         <div class="services-flex">
             <div class="services-info-left reveal">
                 <p style="color:#888; font-weight:700;">Yohm Technology's</p>
                 <h2>Services</h2>
-                <p>Holistic IT services from job placement and career guidance to training and staffing. We’re your partners in every step of your IT journey.</p>
+                <p>Holistic IT services from job placement and career guidance to training and staffing.</p>
                 <img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?auto=format&fit=crop&w=800&q=80" alt="Consultant" class="service-img-small">
             </div>
             <div class="services-grid-right reveal">
@@ -313,9 +338,9 @@
             <h2 style="color:white; font-size:38px; margin-bottom: 60px;">Why Choose Us?</h2>
         </div>
         <div class="why-grid">
-            <div class="why-card reveal"><div class="why-icon"><i class="fas fa-users"></i></div><h3>Elite Staffing</h3><p>IT recruitment and staffing for finance, healthcare, and technology sectors.</p></div>
-            <div class="why-card reveal stagger-1"><div class="why-icon"><i class="fas fa-graduation-cap"></i></div><h3>Growth Path</h3><p>Personalized professional roadmaps and branding for your long-term success.</p></div>
-            <div class="why-card reveal stagger-2"><div class="why-icon"><i class="fas fa-user-shield"></i></div><h3>Job Guarantee</h3><p>Confidence through verified placement support plans and end-to-end guidance.</p></div>
+            <div class="why-card reveal"><div class="why-icon"><i class="fas fa-users"></i></div><h3>Elite Staffing</h3><p>IT recruitment for finance, healthcare, and technology sectors.</p></div>
+            <div class="why-card reveal stagger-1"><div class="why-icon"><i class="fas fa-graduation-cap"></i></div><h3>Growth Path</h3><p>Personalized roadmaps and branding for your success.</p></div>
+            <div class="why-card reveal stagger-2"><div class="why-icon"><i class="fas fa-user-shield"></i></div><h3>Job Guarantee</h3><p>Confidence through verified placement support plans.</p></div>
         </div>
     </section>
 
@@ -333,14 +358,14 @@
         </div>
     </section>
 
-    <!-- FOOTER (Links Fixed) -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col reveal">
                 <h4>NAVIGATION</h4>
                 <ul>
                     <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
-                    <li><i class="fas fa-chevron-right"></i><a href="index.html#vision">About Us</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="about.html">About Us</a></li>
                     <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
                     <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -348,44 +373,40 @@
             <div class="footer-col reveal stagger-1">
                 <h4>OUR SERVICES</h4>
                 <ul>
-                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">IT Job Placement</a></li>
-                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">Training</a></li>
-                    <li><i class="fas fa-chevron-right"></i><a href="staffing.html">Staffing</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="#services">IT Job Placement</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="#services">Training</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="staffing.html">Staffing Solutions</a></li>
                 </ul>
             </div>
             <div class="footer-col reveal stagger-2">
                 <h4>CONTACT</h4>
-                <p style="font-size:14px; opacity:0.7;">info@yohmtech.com</p>
-                <p style="font-size:14px; opacity:0.7; margin-top:10px;">+1 (555) 000-0000</p>
+                <p style="font-size:14px; opacity:0.7;"><a href="mailto:info@yohmtech.com">info@yohmtech.com</a></p>
+                <p style="font-size:14px; opacity:0.7; margin-top:10px;"><a href="tel:+15550000000">+1 (555) 000-0000</a></p>
             </div>
             <div class="footer-col reveal stagger-3">
                 <h4>OFFICE</h4>
-                <p style="font-size: 13px; opacity: 0.7;">
-                    1007 N Orange St. 4th Floor,<br>
-                    Wilmington, DE, 19801
-                </p>
+                <p style="font-size: 13px; opacity: 0.7;">1007 N Orange St. 4th Floor,<br>Wilmington, DE, 19801</p>
             </div>
         </div>
-        <div style="text-align:center; margin-top:50px; font-size:12px; opacity:0.4; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        <div style="text-align:center; margin-top:50px; font-size:12px; opacity:0.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
             &copy; 2024 Yohm Technology | Ω Precision HR.
         </div>
     </footer>
 
     <script>
-        // Mobile Toggle logic
+        // Hamburger Menu Toggle
         const mobileBtn = document.getElementById('mobile-btn');
         const navList = document.getElementById('nav-list');
         mobileBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
 
-        // Intersection Observer for animations
+        // Intersection Observer for Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                     if(entry.target.id === 'success') {
-                        // Grow the green bar only when visible
                         document.getElementById('p-bar').style.width = '97.8%';
                     }
                 }
