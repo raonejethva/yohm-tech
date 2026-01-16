@@ -31,7 +31,7 @@
         header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
         
-        .brand-link { display: flex; align-items: center; gap: 14px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 1001; }
         .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
         .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
         
@@ -39,12 +39,16 @@
         .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
         .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
 
+        /* Navigation Menu */
         .nav-menu { display: flex; gap: 25px; align-items: center; }
         .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
         .nav-menu a:hover { color: var(--brand-blue); }
 
         .btn-connect-nav { background: var(--brand-blue); color: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; font-size: 11px; text-transform: uppercase; }
         .btn-connect-nav:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* Mobile Hamburger */
+        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; }
 
         /* --- BREADCRUMB HEADER --- */
         .page-header { background-color: var(--breadcrumb-bg); padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
@@ -75,7 +79,8 @@
         .btn-submit:hover { transform: scale(1.03); }
 
         /* --- MAP SECTION --- */
-        .map-section { width: 100%; height: 450px; border: none; margin-bottom: -10px; }
+        .map-section { width: 100%; height: 500px; border: none; margin-top: 50px; }
+        iframe { width: 100%; height: 100%; border: 0; }
 
         /* --- FOOTER --- */
         footer { background: var(--navy); color: white; padding: 80px 20px 30px; }
@@ -84,13 +89,21 @@
         .footer-col ul li { margin-bottom: 12px; opacity: 0.7; font-size: 13px; list-style: none; transition: 0.3s; cursor: pointer; }
         .footer-col ul li:hover { opacity: 1; color: var(--brand-blue); padding-left: 5px; }
 
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 992px) {
+            .hamburger { display: block; }
+            .nav-menu { 
+                position: fixed; top: 72px; right: -100%; width: 280px; height: 100vh;
+                background: white; flex-direction: column; padding: 40px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s;
+            }
+            .nav-menu.active { right: 0; }
+            .btn-connect-nav { display: none; }
             .contact-content { flex-direction: column; text-align: center; }
             .callback-card { min-width: 100%; padding: 30px; }
             .form-grid { grid-template-columns: 1fr; }
             textarea { grid-column: span 1; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-menu { display: none; }
         }
     </style>
 </head>
@@ -111,13 +124,16 @@
                     <span class="brand-sub">Placement Agency</span>
                 </div>
             </a>
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="nav-list">
                 <a href="index.html">Home</a>
+                <a href="index.html#success">Success</a>
                 <a href="index.html#services">Services</a>
                 <a href="staffing.html">Staffing</a>
+                <a href="refer.html">Refer & Earn</a>
                 <a href="contact.html" style="color: var(--brand-blue);">Contact Us</a>
-                <button class="btn-connect-nav">Request Callback</button>
             </nav>
+            <button class="btn-connect-nav" onclick="location.href='contact.html'">Request Callback</button>
+            <button class="hamburger" id="mobile-btn"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
@@ -161,7 +177,7 @@
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Map Section (Adjusted Size) -->
     <section class="map-section">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.03478950645!2d-75.5512296!3d39.7494548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fd6b0d91244f%3A0x6b0933748269d95d!2s1007%20N%20Orange%20St%2C%20Wilmington%2C%20DE%2019801!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
     </section>
@@ -202,6 +218,15 @@
         </div>
         <p style="text-align: center; margin-top: 50px; font-size: 12px; opacity: 0.4; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">Copyright © 2026 Yohm Technology LLC, all right reserved</p>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle logic
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navList = document.getElementById('nav-list');
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
