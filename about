@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Yohm Technology LLC</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0038a8; 
+            --navy: #011d33;
+            --breadcrumb-bg: #f1f7ff;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
+        h1, h2, h3, h4, .brand-main { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HEADER --- */
+        header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 1001; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
+        
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+
+        /* Navigation Menu */
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        .btn-nav-action { background: var(--brand-blue); color: white; padding: 10px 20px; border-radius: 6px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 11px; text-transform: uppercase; }
+        .btn-nav-action:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; z-index: 1001; }
+
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: var(--breadcrumb-bg); padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- ABOUT COMPANY INTRO --- */
+        .intro-section { padding: 100px 20px; max-width: 1250px; margin: 0 auto; display: flex; align-items: center; gap: 80px; }
+        .intro-images { flex: 1; position: relative; }
+        .img-large { width: 85%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .img-small { width: 60%; border-radius: 20px; position: absolute; bottom: -40px; left: -20px; border: 8px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .intro-text { flex: 1.2; }
+        .intro-text h4 { color: #888; font-size: 18px; margin-bottom: 10px; font-weight: 600; }
+        .intro-text h2 { font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 800; line-height: 1.2; }
+        .intro-text p { color: #666; font-size: 15px; margin-bottom: 15px; }
+
+        /* --- MISSION/VISION/PROMISE --- */
+        .mvp-section { background-color: var(--brand-blue); padding: 120px 20px; color: white; text-align: center; }
+        .mvp-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .mvp-card { border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 60px 30px 40px; position: relative; transition: 0.3s; }
+        .mvp-card:hover { background: rgba(255,255,255,0.05); }
+        .mvp-icon { width: 90px; height: 90px; background: white; border-radius: 50%; position: absolute; top: -45px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; font-size: 35px; color: var(--brand-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .mvp-card h3 { font-size: 24px; margin-bottom: 20px; font-weight: 700; }
+        .mvp-card p { font-size: 14px; opacity: 0.9; line-height: 1.8; }
+
+        /* --- ALTERNATING SECTIONS --- */
+        .alt-section { padding: 100px 20px; max-width: 1250px; margin: 0 auto; display: flex; align-items: center; gap: 80px; }
+        .alt-image-side { flex: 1; position: relative; display: flex; justify-content: center; }
+        .alt-image-side img { width: 400px; height: 320px; border-radius: 25px; object-fit: cover; position: relative; z-index: 2; border: 8px solid white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .shape-bg { position: absolute; width: 380px; height: 300px; background: var(--brand-blue); border-radius: 25px; transform: rotate(10deg); z-index: 1; top: 20px; }
+        .shape-bg.left { transform: rotate(-10deg); }
+        .alt-text-side { flex: 1.2; }
+        .alt-text-side span { color: #888; font-weight: 600; font-size: 16px; }
+        .alt-text-side h2 { font-size: 34px; color: var(--brand-blue); margin: 10px 0 20px; font-weight: 800; }
+
+        /* --- FOOTER --- */
+        footer { background: #010c16; color: white; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 15px; text-transform: uppercase; color: #fff; }
+        .footer-col ul li { margin-bottom: 12px; display: flex; align-items: center; opacity: 0.7; font-size: 14px; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
+        .footer-col ul li a:hover { opacity: 1; color: var(--brand-blue); padding-left: 5px; }
+
+        @media (max-width: 992px) {
+            .hamburger { display: block; }
+            .nav-menu { position: fixed; top: 70px; right: -100%; width: 280px; height: 100vh; background: white; flex-direction: column; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; }
+            .nav-menu.active { right: 0; }
+            .nav-menu a { color: var(--navy); font-size: 16px; }
+            .intro-section, .alt-section, .mvp-grid, .footer-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
+            .img-small { display: none; }
+            .img-large, .alt-image-side img { width: 100%; max-width: 400px; }
+            .mvp-card { margin-top: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100">
+                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" stroke-width="8"/>
+                        <path d="M50 35 V 15" stroke-width="10" stroke="#fff" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-list">
+                <a href="index.html">Home</a>
+                <a href="about.html" style="color: var(--brand-blue);">About Us</a>
+                <a href="staffing.html">Staffing</a>
+                <a href="refer.html">Refer & Earn</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-nav-action" onclick="location.href='contact.html'">Request Callback</button>
+            </div>
+
+            <button class="hamburger" id="mobile-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Section -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>About Us</h1>
+            <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity: 0.3;"></i> <span>About Us</span></div>
+        </div>
+    </section>
+
+    <!-- About Company Intro -->
+    <section class="intro-section reveal">
+        <div class="intro-images">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Handshake" class="img-large">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Meeting" class="img-small">
+        </div>
+        <div class="intro-text">
+            <h4>About Company</h4>
+            <h2>Let us be your trusted partner</h2>
+            <p>Yohm Technology stands out as a premier job-seeking service, distinguished by our extensive nationwide searches within the United States and global tech hubs. Our mission is to identify the most suitable candidates for a wide range of technical job roles.</p>
+            <p>Leveraging our in-depth experience in international recruitment law, we extend reach beyond national borders to place qualified individuals with STEM OPT, H1B, and GC visas. What truly sets Yohm Technology apart is our pioneering combination of job search marketing and real-time interview services.</p>
+        </div>
+    </section>
+
+    <!-- MVP Section -->
+    <section class="mvp-section">
+        <div class="mvp-grid">
+            <div class="mvp-card reveal">
+                <div class="mvp-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>Our Mission</h3>
+                <p>With a seasoned team of experts, we ensure candidates receive personalized guidance through every facet of their job search journey. We pledge to provide job seekers with a platform that not only secures opportunities but also bestows significant recognition upon their professional careers.</p>
+            </div>
+            <div class="mvp-card reveal" style="transition-delay: 0.1s;">
+                <div class="mvp-icon"><i class="fas fa-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>Yohm Technology is driven by a commitment to trust-based relationships. Our vision highlights unyielding dedication to excellence and authentic bonds. Having successfully placed over 870+ candidates in high-paying roles, our goal this year is to serve 1,000+ candidates globally.</p>
+            </div>
+            <div class="mvp-card reveal" style="transition-delay: 0.2s;">
+                <div class="mvp-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Brand Promise</h3>
+                <p>Our brand promise at Yohm Technology is to realize your ambitions. We are committed to unveiling your dream job, utilizing our industry knowledge to connect you with roles that complement your goals. Your aspirations take center stage, guiding our every step toward a fulfilling career for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Friendly Section -->
+    <section class="alt-section reveal">
+        <div class="alt-text-side">
+            <span>Yohm Technology's</span>
+            <h2>Payment Friendly</h2>
+            <p>Navigating your path toward success is made even more accessible with Yohm Technology’s diverse payment plans and enrollment options. We understand the uniqueness of every journey and offer flexible solutions that cater to your specific needs.</p>
+            <p>Whether you’re looking for a plan that suits your budget or an enrollment timeline that aligns seamlessly with your schedule, we’ve got you covered.</p>
+        </div>
+        <div class="alt-image-side">
+            <div class="shape-bg"></div>
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Payment">
+        </div>
+    </section>
+
+    <!-- Experienced Team Section -->
+    <section class="alt-section reveal" style="padding-bottom: 150px;">
+        <div class="alt-image-side">
+            <div class="shape-bg left"></div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team">
+        </div>
+        <div class="alt-text-side">
+            <span>Yohm Technology's</span>
+            <h2>Experienced Team</h2>
+            <p>Our strength lies in our exceptional team at Yohm Technology. Comprising seasoned recruiters, skilled sales professionals, experienced CV experts, and dedicated interview supporters, we stand united in our commitment to your success.</p>
+            <p>With years of industry knowledge and expertise, our team is well-equipped to guide you through every step of your journey, ensuring that you receive the highest level of support.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="about.html">About Us</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">IT Job Placement</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="staffing.html">Staffing Solutions</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p style="font-size: 14px; opacity: 0.7;"><i class="fas fa-map-marker-alt" style="color:var(--brand-blue); margin-right: 10px;"></i> 1007 N Orange St. 4th Floor, Wilmington, DE</p>
+                <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;"><i class="fas fa-envelope" style="color:var(--brand-blue); margin-right: 10px;"></i> service@yohmtechnology.com</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="border: none; font-weight: 800;">YOHM TECHNOLOGY</h4>
+                <p style="font-size: 12px; opacity: 0.6;">Ω Standard in IT Recruitment.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px; font-size: 12px; opacity: 0.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+            &copy; 2024 Yohm Technology | Ω Precision Recruitment.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navList = document.getElementById('nav-list');
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
