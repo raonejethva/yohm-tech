@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yohm Technology | Specialized IT Placement & Staffing Agency</title>
+    <title>Staffing Solutions | Yohm Technology</title>
     
     <!-- Professional Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
         /* --- GLOBAL SETUP --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4, .brand-main { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         a { text-decoration: none; color: inherit; }
 
         /* --- ANIMATIONS --- */
@@ -34,29 +34,31 @@
         /* --- HEADER --- */
         header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        
         .brand-link { display: flex; align-items: center; gap: 14px; }
-        .logo-box { width: 48px; height: 48px; background: var(--brand-blue); border-radius: 12px; display: flex; justify-content: center; align-items: center; }
-        .logo-svg { width: 28px; height: 28px; fill: none; stroke: white; stroke-width: 8; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
+        
         .brand-text { display: flex; flex-direction: column; }
-        .brand-main { font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1; }
-        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2.2px; margin-top: 4px; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
 
         .nav-menu { display: flex; gap: 20px; align-items: center; }
-        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
         .nav-menu a:hover { color: var(--brand-blue); }
 
-        /* --- BREADCRUMB HEADER (From Image) --- */
-        .page-header { background-color: #f1f7ff; padding: 40px 20px; border-bottom: 1px solid #e2e8f0; }
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: #f1f7ff; padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
         .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
         .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
         .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
 
-        /* --- STAFFING CONTENT SECTION --- */
+        /* --- STAFFING CONTENT --- */
         .staffing-section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         .staffing-text p { margin-bottom: 25px; color: #666; font-size: 15px; line-height: 1.8; text-align: justify; }
 
-        /* --- JOB ROLES GRID (MATCHING IMAGE) --- */
+        /* --- JOB ROLES GRID --- */
         .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
         .role-card { 
             padding: 25px 10px; border-radius: 15px; text-align: center; 
@@ -65,14 +67,10 @@
             display: flex; align-items: center; justify-content: center;
             min-height: 80px;
         }
-
-        /* Alternating Colors logic from image */
         .card-dark { background-color: var(--navy); color: white; }
         .card-light { background-color: var(--card-light); color: #555; }
-        
         .role-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        /* Row 3 Centering (3 items) */
         .bottom-row { grid-column: span 4; display: flex; justify-content: center; gap: 20px; margin-top: 0px; }
         .bottom-row .role-card { width: calc(25% - 15px); }
 
@@ -99,12 +97,11 @@
     <!-- Header -->
     <header>
         <div class="nav-container">
-            <a href="#" class="brand-link">
+            <a href="index.html" class="brand-link">
                 <div class="logo-box">
                     <svg class="logo-svg" viewBox="0 0 100 100">
-                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" />
+                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" stroke-width="8"/>
                         <path d="M50 35 V 20" stroke-width="10" stroke="#fff" />
-                        <path d="M35 15 L 50 25 L 65 15" stroke-width="10" stroke="#fff" />
                     </svg>
                 </div>
                 <div class="brand-text">
@@ -113,24 +110,25 @@
                 </div>
             </a>
             <nav class="nav-menu">
-               <a href="index.html">Home</a> <!-- Goes back to home file -->
-                <a href="staffing.html">Staffing</a>
+                <!-- Navigation links pointing to specific files and IDs -->
+                <a href="index.html">Home</a>
+                <a href="staffing.html" style="color: var(--brand-blue);">Staffing</a>
                 <a href="index.html#services">Services</a>
-                <a href="index.html#contact">Contact</a>
-                <button style="background:var(--brand-blue); color:white; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">CONNECT</button>
+                <a href="contact.html">Contact</a>
+                <a href="refer.html" style="background:var(--brand-blue); color:white; padding:8px 15px; border-radius:5px;">Refer & Earn</a>
             </nav>
         </div>
     </header>
 
-    <!-- Breadcrumb Header -->
+    <!-- Breadcrumb -->
     <section class="page-header">
         <div class="header-flex">
             <h1>Staffing</h1>
-            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px;"></i> <span>Staffing</span></div>
+            <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity:0.5;"></i> <span>Staffing</span></div>
         </div>
     </section>
 
-    <!-- Main Staffing Section -->
+    <!-- Content Section -->
     <section class="staffing-section" id="staffing">
         <div class="staffing-text reveal">
             <p>Our holistic staffing services encompass a multi-faceted approach to sourcing, selecting, and nurturing the finest candidates tailored to our client's unique needs.</p>
@@ -139,21 +137,18 @@
             <p>Overall, Yohm Technology provides tailored solutions that precisely meet our clients' needs through the strategic identification and retention of apt talent, businesses can not only attain their objectives but also flourish within their respective industries.</p>
         </div>
 
-        <!-- Job Roles Grid (Replicating Image exactly) -->
+        <!-- Job Roles Grid -->
         <div class="role-grid reveal">
-            <!-- Row 1 -->
             <div class="role-card card-dark">Data Analyst</div>
             <div class="role-card card-light">Business Analyst</div>
             <div class="role-card card-dark">Software Developer</div>
             <div class="role-card card-light">Web Developer</div>
             
-            <!-- Row 2 -->
             <div class="role-card card-light">System Engineer</div>
             <div class="role-card card-dark">AWS Cloud Engineer</div>
             <div class="role-card card-light">Python Developer</div>
             <div class="role-card card-dark">DevOps Engineer</div>
 
-            <!-- Row 3 (Bottom Row) -->
             <div class="bottom-row">
                 <div class="role-card card-dark">QA Automation / Manual</div>
                 <div class="role-card card-light">Project Manager</div>
@@ -161,13 +156,13 @@
             </div>
         </div>
 
-        <!-- CTA Banner -->
+        <!-- CTA -->
         <div class="cta-banner reveal">
             <div class="cta-flex">
                 <div class="cta-text">
                     <h2>Did not find what you are searching for?<br>Connect with us:</h2>
                 </div>
-                <button class="btn-cta">Connect with Us</button>
+                <button class="btn-cta" onclick="location.href='contact.html'">Connect with Us</button>
             </div>
         </div>
     </section>
@@ -188,35 +183,4 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- COPY THE ENTIRE <head> SECTION FROM YOUR MAIN SITE HERE -->
-    <!-- This ensures the fonts, colors, and animations stay the same -->
-</head>
-<body>
-
-    <!-- 1. PASTE YOUR HEADER CODE HERE -->
-
-    <!-- 2. THE NEW STAFFING CONTENT -->
-    <section class="page-header">
-        <div class="header-flex">
-            <h1>Staffing Solutions</h1>
-            <div class="breadcrumb">Home > <span>Staffing</span></div>
-        </div>
-    </section>
-
-    <section class="staffing-content">
-        <!-- Paste the Staffing Grid and Text I gave you in the last message here -->
-    </section>
-
-    <!-- 3. PASTE YOUR FOOTER CODE HERE -->
-
-</body>
 </html>
-<nav class="nav-menu">
-    <a href="index.html">Home</a> <!-- Goes back to home file -->
-    <a href="staffing.html">Staffing</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#contact">Contact</a>
-</nav>
