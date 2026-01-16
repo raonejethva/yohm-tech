@@ -25,7 +25,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         /* --- ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
@@ -37,7 +37,7 @@
         header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 2000; }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
         
-        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 1001; }
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 2100; }
         .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
         .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
         
@@ -45,19 +45,20 @@
         .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
         .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
 
+        /* Navigation Menu */
         .nav-menu { display: flex; gap: 20px; align-items: center; }
-        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; padding: 5px 0; }
         .nav-menu a:hover { color: var(--brand-blue); }
 
-        .nav-actions { display: flex; align-items: center; }
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
         .btn-contact-main { background: var(--brand-blue); color: white; padding: 11px 24px; border-radius: 6px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 12px; text-transform: uppercase; }
         .btn-contact-main:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 56, 168, 0.2); background: var(--navy); }
 
-        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; }
+        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; z-index: 2100; }
 
         /* --- HERO --- */
-        .hero-banner { background-color: var(--brand-blue); min-height: 85vh; display: flex; align-items: center; position: relative; overflow: hidden; color: white; padding: 60px 20px; }
-        .hero-banner::before { content: ''; position: absolute; bottom: 0; right: 0; width: 40%; height: 100%; background: rgba(0,0,0,0.1); clip-path: polygon(100% 0, 0% 100%, 100% 100%); }
+        #home { background-color: var(--brand-blue); min-height: 85vh; display: flex; align-items: center; position: relative; overflow: hidden; color: white; padding: 60px 20px; }
+        #home::before { content: ''; position: absolute; bottom: 0; right: 0; width: 40%; height: 100%; background: rgba(0,0,0,0.1); clip-path: polygon(100% 0, 0% 100%, 100% 100%); }
         .hero-flex { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 40px; position: relative; z-index: 2; width: 100%; }
         .hero-content-left h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 25px; font-weight: 800; }
         .btn-white { background: white; color: var(--brand-blue); padding: 15px 35px; border-radius: 8px; font-weight: 700; transition: 0.3s; display: inline-block; margin-top: 20px; }
@@ -76,7 +77,7 @@
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 12)); } }
 
         /* --- WHAT WE DO --- */
-        .what-we-do { padding: 120px 20px; background: #fff; }
+        #wwd { padding: 120px 20px; background: #fff; }
         .wwd-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 80px; }
         .wwd-image { flex: 1; position: relative; display: flex; justify-content: center; }
         .wwd-image::before { content: ''; position: absolute; width: 320px; height: 320px; background: var(--card-blue); border-radius: 40px; transform: rotate(-15deg); z-index: 1; }
@@ -86,22 +87,21 @@
         .wwd-text h2 { font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 800; }
 
         /* --- SUCCESS CHART --- */
-        .success-outer { background-color: var(--navy); padding: 100px 20px; color: white; position: relative; overflow: hidden; }
+        #success { background-color: var(--navy); padding: 100px 20px; color: white; position: relative; overflow: hidden; }
         .success-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 60px; position: relative; z-index: 2; }
         .success-content { flex: 1.5; text-align: center; }
         .timeline-container { display: flex; justify-content: space-between; position: relative; margin-bottom: 80px; width: 100%; }
         .timeline-container::before { content: ''; position: absolute; top: 27px; left: 50px; right: 50px; height: 2px; border-top: 2px dashed rgba(255,255,255,0.3); }
         .year-node { width: 55px; height: 55px; background: white; color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 15px; }
         .progress-track { width: 100%; height: 14px; background: rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; position: relative; margin-top: 30px; }
-        .progress-fill { width: 0%; height: 100%; background: var(--success-green); transition: width 2s ease-out; }
+        .progress-fill { width: 0%; height: 100%; background: #689f00; transition: width 2s ease-out; }
 
-        /* --- SERVICES (EXACT LAYOUT) --- */
-        .services-section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; background: var(--light-bg); }
+        /* --- SERVICES --- */
+        #services { padding: 100px 20px; max-width: 1400px; margin: 0 auto; background: var(--light-bg); }
         .services-flex { display: flex; gap: 80px; flex-wrap: wrap; }
         .services-info-left { flex: 1; min-width: 320px; }
         .services-info-left h2 { font-size: 40px; color: var(--navy); font-weight: 800; margin-bottom: 20px; }
         .service-img-small { width: 100%; max-width: 330px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 30px; }
-        
         .services-grid-right { flex: 2; min-width: 500px; }
         .custom-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .s-card { background: var(--white); border-radius: 20px; padding: 40px 10px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
@@ -110,20 +110,20 @@
         .card-staffing { grid-column: 3; }
 
         /* --- STAFFING ROLES --- */
-        .staffing-roles { padding: 100px 20px; background: #fff; max-width: 1200px; margin: 0 auto; }
+        #staffing { padding: 100px 20px; background: #fff; max-width: 1200px; margin: 0 auto; }
         .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .role-btn { padding: 25px 10px; border-radius: 12px; text-align: center; font-weight: 700; font-size: 11px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; transition: 0.3s; cursor: pointer; }
         .role-dark { background: var(--navy); color: white; }
         .role-light { background: var(--card-blue); color: var(--navy); }
 
-        /* --- WHY CHOOSE US (BLUE BOXES) --- */
-        .why-choose { background-color: var(--brand-blue); padding: 120px 20px; color: white; text-align: center; }
+        /* --- WHY CHOOSE US --- */
+        #why { background-color: var(--brand-blue); padding: 120px 20px; color: white; text-align: center; }
         .why-grid { max-width: 1250px; margin: 80px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .why-card { border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 25px; padding: 80px 30px 40px; position: relative; transition: 0.3s; }
         .why-icon { width: 100px; height: 100px; background: white; border-radius: 50%; position: absolute; top: -50px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; font-size: 40px; color: var(--brand-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
         /* --- VISION --- */
-        .vision-section { background-color: #f8fafc; padding: 120px 20px; }
+        #vision { background-color: #f8fafc; padding: 120px 20px; }
         .vision-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
         .vision-text { flex: 1.5; min-width: 350px; }
         .vision-text h2 { font-size: 40px; color: var(--navy); margin-bottom: 25px; font-weight: 800; }
@@ -134,19 +134,24 @@
 
         /* --- FOOTER --- */
         footer { background: #010c16; color: white; padding: 80px 20px 30px; }
-        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; }
-        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 16px; text-transform: uppercase; }
-        .footer-col ul li { margin-bottom: 12px; opacity: 0.7; font-size: 13px; list-style: none; transition: 0.3s; cursor: pointer; display: flex; align-items: center; }
-        .footer-col ul li:hover { opacity: 1; color: var(--brand-blue); padding-left: 5px; }
-        .footer-col ul li i { margin-right: 10px; color: var(--brand-blue); font-size: 10px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 16px; color: #fff; text-transform: uppercase; }
+        .footer-col ul li { margin-bottom: 12px; display: flex; align-items: center; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
+        .footer-col ul li a { color: rgba(255, 255, 255, 0.7); font-size: 14px; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--brand-blue); padding-left: 5px; }
 
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 992px) {
             .hamburger { display: block; }
-            .nav-menu { position: fixed; top: 70px; right: -100%; width: 280px; height: 100vh; background: white; flex-direction: column; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; }
+            .nav-menu { 
+                position: fixed; top: 70px; right: -100%; width: 280px; height: 100vh;
+                background: white; flex-direction: column; padding: 40px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; z-index: 2000;
+            }
             .nav-menu.active { right: 0; }
-            .nav-menu a { color: var(--navy); font-size: 16px; }
             .nav-actions { display: none; }
-            .hero-flex, .success-inner, .wwd-container, .why-grid, .services-flex, .vision-container, .role-grid, .footer-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
+            .hero-flex, .success-inner, #wwd .wwd-container, .why-grid, .services-flex, .vision-container, .role-grid, .footer-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
             .diamond-container, .wwd-diamond, .vision-img-main { width: 300px; height: 300px; margin: 0 auto; }
             .timeline-container { flex-wrap: wrap; gap: 20px; justify-content: center; }
             .timeline-container::before { display: none; }
@@ -172,29 +177,33 @@
                     <span class="brand-sub">Placement Agency</span>
                 </div>
             </a>
+
+            <!-- Navigation Links -->
             <nav class="nav-menu" id="nav-list">
                 <a href="index.html">Home</a>
-                <a href="#success">Success</a>
-                <a href="#services">Services</a>
+                <a href="index.html#success">Success</a>
+                <a href="index.html#services">Services</a>
                 <a href="staffing.html">Staffing</a>
                 <a href="refer.html">Refer & Earn</a>
                 <a href="contact.html">Contact Us</a>
             </nav>
+
             <div class="nav-actions">
-                <a href="contact.html" class="btn-contact-main">Connect Us</a>
+                <a href="contact.html" class="btn-contact-main">Connect Now</a>
             </div>
+
             <button class="hamburger" id="mobile-btn"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
     <!-- HERO -->
-    <section class="hero-banner">
+    <section id="home">
         <div class="hero-flex">
             <div class="hero-content-left reveal">
                 <span>You Will Grow</span>
                 <h1 style="color:white;">You Will Succeed.<br>We Promise That</h1>
                 <p>Team of excellent professionals dedicated to your technical career growth.</p>
-                <a href="contact.html" class="btn-white">Get Started</a>
+                <div class="hero-btns"><a href="contact.html" class="btn-white">Get Started</a></div>
             </div>
             <div class="hero-image-right reveal">
                 <div class="diamond-container">
@@ -213,7 +222,7 @@
             <div class="logo-item"><i class="fab fa-apple" style="color:#000"></i><span>Apple</span></div>
             <div class="logo-item"><i class="fab fa-facebook" style="color:#1877F2"></i><span>Meta</span></div>
             <div class="logo-item"><i class="fab fa-paypal" style="color:#003087"></i><span>PayPal</span></div>
-            <!-- Duplicates -->
+            <!-- Duplicates for loop -->
             <div class="logo-item"><i class="fab fa-google" style="color:#4285F4"></i><span>Google</span></div>
             <div class="logo-item"><i class="fab fa-microsoft" style="color:#737373"></i><span>Microsoft</span></div>
             <div class="logo-item"><i class="fab fa-amazon" style="color:#FF9900"></i><span>Amazon</span></div>
@@ -224,7 +233,7 @@
     </div>
 
     <!-- WHAT WE DO -->
-    <section class="what-we-do">
+    <section id="wwd">
         <div class="wwd-container">
             <div class="wwd-image reveal">
                 <div class="wwd-diamond">
@@ -232,39 +241,41 @@
                 </div>
             </div>
             <div class="wwd-text reveal">
-                <h2 style="color:var(--navy)">Let Yohm Tech, Find you the right job</h2>
-                <p>We provide a distinct approach to technical recruitment. We specialize in customized staffing solutions that align your unique skills with premier global opportunities.</p>
+                <span>What we do?</span>
+                <h2>Let Yohm Tech, Find you the right job</h2>
+                <p>As the flagship of innovation in the placement industry, Yohm Technology Placement brings a distinct approach to the forefront. Rooted in cutting-edge strategies, we specialize in customized staffing solutions.</p>
                 <a href="contact.html" class="btn-contact-main" style="display:inline-block; margin-top:20px;">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- SUCCESS -->
-    <section class="success-outer" id="success">
+    <!-- SUCCESS (Timeline) -->
+    <section id="success">
         <div class="success-inner">
             <div class="success-content">
                 <h2 class="reveal">Proven Results</h2>
-                <p style="margin-bottom:60px; opacity:0.8;">Facilitated the successful placement of 870+ candidates, generating meaningful employment opportunities.</p>
+                <p style="margin-bottom:60px; opacity:0.8;">Since establishment, Yohm Technology has facilitated the successful placement of 870+ candidates.</p>
                 <div class="timeline-container reveal">
-                    <div class="timeline-item"><div class="year-node">2021</div><div class="node-count">60+</div><div class="node-label">Candidates</div></div>
-                    <div class="timeline-item"><div class="year-node">2022</div><div class="node-count">180+</div><div class="node-label">Candidates</div></div>
-                    <div class="timeline-item"><div class="year-node">2023</div><div class="node-count">300+</div><div class="node-label">Candidates</div></div>
-                    <div class="timeline-item"><div class="year-node">2024</div><div class="node-count">523+</div><div class="node-label">Candidates</div></div>
-                    <div class="timeline-item"><div class="year-node">2025</div><div class="node-count">870+</div><div class="node-label">Placements</div></div>
+                    <div class="timeline-item"><div class="year-node">2021</div><div style="font-weight:800">60+</div></div>
+                    <div class="timeline-item"><div class="year-node">2022</div><div style="font-weight:800">180+</div></div>
+                    <div class="timeline-item"><div class="year-node">2023</div><div style="font-weight:800">300+</div></div>
+                    <div class="timeline-item"><div class="year-node">2024</div><div style="font-weight:800">523+</div></div>
+                    <div class="timeline-item"><div class="year-node">2025</div><div style="font-weight:800">870+</div></div>
                 </div>
                 <div class="progress-wrapper reveal">
                     <div class="progress-track"><div class="progress-fill" id="p-bar"></div></div>
-                    <p style="font-size: 14px; font-weight:700">97.8% SUCCESS RATE</p>
+                    <p style="font-size: 14px; opacity: 0.8; font-weight:700">97.8% SUCCESS RATE</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HOLISTIC SERVICES -->
-    <section class="services-section" id="services">
+    <!-- SERVICES (Re-arranged) -->
+    <section id="services">
         <div class="services-flex">
             <div class="services-info-left reveal">
-                <h2>Our Services</h2>
+                <p style="color:#888; font-weight:700;">Yohm Technology's</p>
+                <h2>Services</h2>
                 <p>Holistic IT services from job placement and career guidance to training and staffing. We’re your partners in every step of your IT journey.</p>
                 <img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?auto=format&fit=crop&w=800&q=80" alt="Consultant" class="service-img-small">
             </div>
@@ -281,7 +292,7 @@
     </section>
 
     <!-- STAFFING ROLES -->
-    <section class="staffing-roles">
+    <section id="staffing">
         <div class="section-title reveal" style="text-align: center; margin-bottom: 50px;"><h2>Staffing Domains</h2></div>
         <div class="role-grid reveal">
             <div class="role-btn role-dark">Data Analyst</div>
@@ -296,8 +307,11 @@
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="why-choose">
-        <div class="reveal"><h2>Why Choose Us?</h2></div>
+    <section id="why">
+        <div class="reveal">
+            <p style="color:white; margin-bottom:10px;">Give your Job Seekness to Yohm Tech</p>
+            <h2 style="color:white; font-size:38px; margin-bottom: 60px;">Why Choose Us?</h2>
+        </div>
         <div class="why-grid">
             <div class="why-card reveal"><div class="why-icon"><i class="fas fa-users"></i></div><h3>Elite Staffing</h3><p>IT recruitment and staffing for finance, healthcare, and technology sectors.</p></div>
             <div class="why-card reveal stagger-1"><div class="why-icon"><i class="fas fa-graduation-cap"></i></div><h3>Growth Path</h3><p>Personalized professional roadmaps and branding for your long-term success.</p></div>
@@ -306,12 +320,11 @@
     </section>
 
     <!-- VISION -->
-    <section class="vision-section">
+    <section id="vision">
         <div class="vision-container">
             <div class="vision-text reveal">
                 <h2>Our Vision</h2>
-                <p>At our core, we are dedicated to providing unmatched IT services while nurturing trust-based relationships with our clients and candidates.</p>
-                <p>Our vision is a testament to our unyielding dedication to excellence and our deliberate emphasis on forging authentic bonds with our global talent.</p>
+                <p>Nurturing trust-based relationships with clients and candidates through unyielding dedication to excellence and authentic bonds.</p>
             </div>
             <div class="vision-image-side reveal">
                 <div class="vision-bg-box"></div>
@@ -320,48 +333,61 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (Links Fixed) -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col reveal">
                 <h4>NAVIGATION</h4>
                 <ul>
-                    <li><i class="fas fa-chevron-right"></i>Home</li>
-                    <li><i class="fas fa-chevron-right"></i>About Us</li>
-                    <li><i class="fas fa-chevron-right"></i>Refer and Earn</li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#vision">About Us</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col reveal stagger-1">
-                <h4>SERVICES</h4>
+                <h4>OUR SERVICES</h4>
                 <ul>
-                    <li><i class="fas fa-chevron-right"></i>IT Job Placement</li>
-                    <li><i class="fas fa-chevron-right"></i>Training</li>
-                    <li><i class="fas fa-chevron-right"></i>Staffing</li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">IT Job Placement</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">Training</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="staffing.html">Staffing</a></li>
                 </ul>
             </div>
             <div class="footer-col reveal stagger-2">
                 <h4>CONTACT</h4>
-                <p style="font-size:13px; opacity:0.7;">info@yohmtech.com</p>
-                <p style="font-size:13px; opacity:0.7; margin-top:10px;">+1 (555) 000-0000</p>
+                <p style="font-size:14px; opacity:0.7;">info@yohmtech.com</p>
+                <p style="font-size:14px; opacity:0.7; margin-top:10px;">+1 (555) 000-0000</p>
+            </div>
+            <div class="footer-col reveal stagger-3">
+                <h4>OFFICE</h4>
+                <p style="font-size: 13px; opacity: 0.7;">
+                    1007 N Orange St. 4th Floor,<br>
+                    Wilmington, DE, 19801
+                </p>
             </div>
         </div>
-        <div style="text-align:center; margin-top:50px; font-size:12px; opacity:0.4;">&copy; 2024 Yohm Technology | Ω Precision HR.</div>
+        <div style="text-align:center; margin-top:50px; font-size:12px; opacity:0.4; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            &copy; 2024 Yohm Technology | Ω Precision HR.
+        </div>
     </footer>
 
     <script>
-        // Hamburger Menu Toggle
+        // Mobile Toggle logic
         const mobileBtn = document.getElementById('mobile-btn');
         const navList = document.getElementById('nav-list');
         mobileBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
 
-        // Animation Engine
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    if(entry.target.id === 'success') document.getElementById('p-bar').style.width = '97.8%';
+                    if(entry.target.id === 'success') {
+                        // Grow the green bar only when visible
+                        document.getElementById('p-bar').style.width = '97.8%';
+                    }
                 }
             });
         }, { threshold: 0.15 });
