@@ -25,7 +25,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
-        a { text-decoration: none; color: inherit; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         /* --- ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
@@ -35,7 +35,7 @@
         header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
         
-        .brand-link { display: flex; align-items: center; gap: 14px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 1001; }
         .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
         .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
         
@@ -43,18 +43,22 @@
         .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
         .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
 
+        /* Navigation Menu */
         .nav-menu { display: flex; gap: 20px; align-items: center; }
-        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
-        .nav-menu a:hover { color: var(--brand-blue); }
+        .nav-menu a { font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--navy); transition: 0.3s; padding: 5px 0; }
+        .nav-menu a:hover { color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); }
+
+        /* Mobile Hamburger */
+        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; z-index: 2100; }
 
         /* --- BREADCRUMB HEADER --- */
-        .page-header { background-color: #f1f7ff; padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .page-header { background-color: #f1f7ff; padding: 40px 20px; border-bottom: 1px solid #e2e8f0; }
         .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
         .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
         .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
 
-        /* --- STAFFING CONTENT --- */
+        /* --- STAFFING CONTENT SECTION --- */
         .staffing-section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         .staffing-text p { margin-bottom: 25px; color: #666; font-size: 15px; line-height: 1.8; text-align: justify; }
 
@@ -78,17 +82,32 @@
         .cta-banner { background-color: #f1f7ff; padding: 60px 20px; margin-top: 100px; border-radius: 20px; }
         .cta-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
         .cta-text h2 { font-size: 32px; color: var(--navy); line-height: 1.3; }
-        .btn-cta { background: var(--brand-blue); color: white; padding: 15px 35px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; font-size: 14px; }
+        .btn-cta { background: var(--brand-blue); color: white; padding: 15px 35px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; font-size: 14px; text-transform: uppercase; }
 
         /* --- FOOTER --- */
-        footer { background: #010c16; color: white; padding: 60px 20px; text-align: center; }
+        footer { background: var(--navy); color: white; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 15px; text-transform: uppercase; color: #fff; }
+        .footer-col ul li { margin-bottom: 12px; display: flex; align-items: center; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
+        .footer-col ul li a { opacity: 0.7; font-size: 14px; }
+        .footer-col ul li a:hover { opacity: 1; color: var(--brand-blue); padding-left: 5px; }
 
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 992px) {
+            .hamburger { display: block; }
+            .nav-menu { 
+                position: fixed; top: 72px; right: -100%; width: 280px; height: 100vh;
+                background: white; flex-direction: column; padding: 40px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; z-index: 2000;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu a { color: var(--navy); font-size: 16px; }
             .role-grid { grid-template-columns: repeat(2, 1fr); }
             .bottom-row { grid-template-columns: repeat(2, 1fr); display: grid; }
             .bottom-row .role-card { width: 100%; }
             .cta-flex { flex-direction: column; text-align: center; }
-            .nav-menu { display: none; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -109,18 +128,18 @@
                     <span class="brand-sub">Placement Agency</span>
                 </div>
             </a>
-            <nav class="nav-menu">
-                <!-- Navigation links pointing to specific files and IDs -->
+            <nav class="nav-menu" id="nav-list">
                 <a href="index.html">Home</a>
                 <a href="staffing.html" style="color: var(--brand-blue);">Staffing</a>
                 <a href="index.html#services">Services</a>
                 <a href="contact.html">Contact</a>
                 <a href="refer.html" style="background:var(--brand-blue); color:white; padding:8px 15px; border-radius:5px;">Refer & Earn</a>
             </nav>
+            <button class="hamburger" id="mobile-btn"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <!-- Breadcrumb -->
+    <!-- Breadcrumb Header -->
     <section class="page-header">
         <div class="header-flex">
             <h1>Staffing</h1>
@@ -128,7 +147,7 @@
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Main Staffing Section -->
     <section class="staffing-section" id="staffing">
         <div class="staffing-text reveal">
             <p>Our holistic staffing services encompass a multi-faceted approach to sourcing, selecting, and nurturing the finest candidates tailored to our client's unique needs.</p>
@@ -156,7 +175,7 @@
             </div>
         </div>
 
-        <!-- CTA -->
+        <!-- CTA Banner -->
         <div class="cta-banner reveal">
             <div class="cta-flex">
                 <div class="cta-text">
@@ -167,11 +186,53 @@
         </div>
     </section>
 
+    <!-- Fixed Footer -->
     <footer>
-        <p>&copy; 2024 Yohm Technology | Ω Precision Staffing Solutions</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#vision">About Us</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>OUR SERVICES</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#wwd">Recruitment Process</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">IT Job Placement</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html#services">Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <p style="font-size:14px; opacity:0.7;"><a href="mailto:info@yohmtechnology.com">info@yohmtechnology.com</a></p>
+                <p style="font-size:14px; opacity:0.7; margin-top:10px;"><a href="tel:+15550000000">+1 (555) 000-0000</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>OFFICE</h4>
+                <p style="font-size: 13px; opacity: 0.7;">
+                    1007 N Orange St. 4th Floor,<br>
+                    Wilmington, DE, 19801
+                </p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:50px; font-size:12px; opacity:0.4; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            &copy; 2024 Yohm Technology | Ω Precision Staffing Solutions
+        </div>
     </footer>
 
     <script>
+        // Mobile Toggle logic
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navList = document.getElementById('nav-list');
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Scroll Reveal logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
