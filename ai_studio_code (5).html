@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer and Earn | Yohm Technology LLC</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0038a8; 
+            --navy: #011d33;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- HEADER (Matching Main Site) --- */
+        header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: #f1f7ff; padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- HOW IT WORKS SECTION --- */
+        .section-title { text-align: center; padding: 80px 20px 40px; }
+        .section-title h2 { font-size: 36px; color: var(--navy); font-weight: 800; }
+
+        .steps-container { 
+            max-width: 1200px; margin: 0 auto; display: flex; gap: 20px; padding: 40px 20px;
+        }
+        .step-card { 
+            flex: 1; text-align: center; padding: 40px 20px; 
+            border-left: 1px solid #eee; border-right: 1px solid #eee; 
+            transition: 0.3s;
+        }
+        .step-card:first-child { border-left: none; }
+        .step-card:last-child { border-right: none; }
+        
+        .step-img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 30px; }
+        .step-number { font-size: 48px; font-weight: 800; color: var(--navy); line-height: 1; }
+        .step-text { font-size: 18px; color: #555; margin-top: 10px; font-weight: 600; }
+        .step-text strong { color: var(--brand-blue); text-transform: uppercase; }
+
+        /* --- BONUS BANNER --- */
+        .bonus-banner { 
+            max-width: 1200px; margin: 60px auto; 
+            background-color: var(--brand-blue); color: white;
+            padding: 50px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .bonus-banner h3 { font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; }
+        .bonus-list { list-style: none; }
+        .bonus-list li { margin-bottom: 15px; position: relative; padding-left: 25px; font-size: 15px; }
+        .bonus-list li::before { content: '•'; position: absolute; left: 0; color: white; font-size: 20px; }
+        .bonus-list strong { text-decoration: underline; }
+
+        /* --- TERMS SECTION --- */
+        .terms-section { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        .terms-section h3 { font-size: 22px; color: var(--navy); margin-bottom: 30px; }
+        .terms-list { list-style: none; }
+        .terms-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: #666; font-size: 14px; }
+        .terms-list li::before { content: '•'; position: absolute; left: 0; color: var(--brand-blue); font-size: 20px; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--navy); color: white; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 15px; text-transform: uppercase; }
+        .footer-col ul li { margin-bottom: 12px; opacity: 0.7; font-size: 13px; list-style: none; transition: 0.3s; }
+        .footer-col ul li:hover { opacity: 1; color: var(--brand-blue); padding-left: 5px; }
+
+        @media (max-width: 992px) {
+            .steps-container { flex-direction: column; }
+            .step-card { border: none; border-bottom: 1px solid #eee; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Matching Main Site) -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100">
+                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" stroke-width="8"/>
+                        <path d="M50 35 V 15" stroke-width="10" stroke="#fff" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="refer.html" style="color: var(--brand-blue);">Refer and Earn</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Section -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>Refer and Earn</h1>
+            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity: 0.3;"></i> <span>Refer and Earn</span></div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section-title">
+        <h2>How it Works</h2>
+    </section>
+
+    <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+            <img src="https://img.freepik.com/free-vector/refer-friend-concept-illustration_114360-7039.jpg" class="step-img" alt="Refer">
+            <div class="step-number">01</div>
+            <div class="step-text">Give us<br>the <strong>REFERENCE</strong></div>
+        </div>
+        <!-- Step 2 -->
+        <div class="step-card">
+            <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7885.jpg" class="step-img" alt="Enroll">
+            <div class="step-number">02</div>
+            <div class="step-text">Make them<br><strong>ENROLL</strong> with us</div>
+        </div>
+        <!-- Step 3 -->
+        <div class="step-card">
+            <img src="https://img.freepik.com/free-vector/payment-concept-illustration_114360-1436.jpg" class="step-img" alt="Bonus">
+            <div class="step-number">03</div>
+            <div class="step-text">Get sign up<br><strong>BONUS</strong></div>
+        </div>
+    </div>
+
+    <!-- Bonus Banner -->
+    <div class="bonus-banner">
+        <h3>Bonus / Credits</h3>
+        <ul class="bonus-list">
+            <li>If a candidate enrolls in <strong>Starter or Premium Plan</strong> you will get <strong>100$</strong> signup bonus and after their placement, you will get another <strong>200$</strong>.</li>
+            <li>If a candidate enrolls in <strong>Elite or Special Plan</strong> you will get <strong>200$</strong> signup bonus and after their placement, you will get another <strong>200$</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- Terms and Conditions -->
+    <div class="terms-section">
+        <h3>Terms & Conditions</h3>
+        <ul class="terms-list">
+            <li>Referral bonuses will be credited to the referee's account within 30 days of the referred candidate's enrollment confirmation.</li>
+            <li>The placement bonus will be credited within 15 days of the successful placement confirmation.</li>
+            <li>Referral bonuses are applicable only when the referred candidate enrolls in the <strong>Starter, Elite, Premium, or Special Plans</strong> as specified on the website at the time of enrollment.</li>
+            <li>The referee will be eligible for the additional placement bonus only after the referred candidate has successfully completed the placement process and has been hired by a company through our platform.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="color:#fff; border:none;">YOHM TECHNOLOGY</h4>
+                <p style="font-size: 13px; opacity: 0.7;">Providing high-quality IT placement and profile marketing services worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="refer.html">Refer and Earn</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>OUR SERVICES</h4>
+                <ul>
+                    <li>IT Job Placement</li>
+                    <li>Career Guidance</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT INFO</h4>
+                <p style="font-size: 13px; opacity: 0.7;"><i class="fas fa-envelope"></i> service@yohmtechnology.com</p>
+                <p style="font-size: 13px; opacity: 0.7; margin-top: 10px;"><i class="fas fa-phone"></i> +1 (555) 000-0000</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
