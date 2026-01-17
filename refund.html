@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy | Yohm Technology LLC</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0066FF; 
+            --brand-glow: rgba(0, 102, 255, 0.4);
+            --navy: #0A192F;      
+            --white: #ffffff;
+            --light-bg: #f1f7ff;
+            --text-gray: #555555;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.8; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- HEADER (Matching Main Site) --- */
+        header { 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 2000; 
+            border-bottom: 1px solid rgba(0, 102, 255, 0.05);
+        }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 2100; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; box-shadow: 0 8px 16px var(--brand-glow); }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; stroke-linecap: round; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.5px; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 11px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        .btn-contact-nav { background: var(--brand-blue); color: white; padding: 10px 22px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; font-size: 11px; text-transform: uppercase; }
+
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: var(--light-bg); padding: 60px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; text-transform: uppercase; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- REFUND CONTENT --- */
+        .policy-container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
+        .policy-list { list-style: none; margin-bottom: 50px; }
+        .policy-list li { position: relative; padding-left: 30px; margin-bottom: 20px; color: var(--text-gray); font-size: 16px; }
+        .policy-list li::before { content: '•'; position: absolute; left: 0; color: var(--brand-blue); font-size: 24px; line-height: 1; }
+
+        .policy-container h2 { font-size: 28px; color: var(--navy); margin-bottom: 30px; border-left: 5px solid var(--brand-blue); padding-left: 15px; }
+
+        /* --- FOOTER --- */
+        footer { background: #050A11; color: white; padding: 100px 20px 40px; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 60px; }
+        .footer-col h4 { margin-bottom: 30px; color: var(--brand-blue); font-size: 16px; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-col ul li { margin-bottom: 15px; opacity: 0.6; font-size: 14px; list-style: none; transition: 0.3s; display: flex; align-items: center; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
+        .footer-col ul li:hover { opacity: 1; color: var(--brand-blue); transform: translateX(8px); }
+
+        @media (max-width: 768px) {
+            .header-flex { flex-direction: column; text-align: center; gap: 10px; }
+            .nav-menu { display: none; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100"><path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" /><path d="M50 35 V 15" stroke-width="10" stroke="#fff" /></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#success">Success</a>
+                <a href="index.html#services">Services</a>
+                <a href="staffing.html">Staffing</a>
+                <a href="refer.html">Refer & Earn</a>
+                <a href="contact.html" class="btn-contact-nav">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>Refund Policy</h1>
+            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity: 0.3;"></i> <span>REFUND POLICY</span></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="policy-container">
+        <ul class="policy-list">
+            <li>As per this agreement, please note that we do not offer refunds*, and all sales are considered final. The candidate needs to understand and acknowledge that refunds are only applicable if the candidate chooses to enroll in our Job Guarantee Plan, which is subject to specific refund conditions outlined below.</li>
+            <li>Additionally, the candidate should be aware that this document will serve as evidence of services provided in case of a dispute, thereby preventing any attempts to dispute the transaction. Any payments made by the candidate through a relative’s, friends, or any other associated person’s credit card are not subject to getting the money back from disputes or chargebacks.</li>
+            <li>Refund requests may be denied if there is third-party involvement (relative/friend) on behalf of the candidate.</li>
+            <li>If the candidate independently secures a job after one month from the Date of Enrollment (DOE), no refund is applicable as per the terms.</li>
+        </ul>
+
+        <h2>Refund Terms and Conditions</h2>
+        <ul class="policy-list">
+            <li><strong>Eligibility for Refund:</strong> To be eligible for a refund, the candidate must have formally enrolled in the Job Guarantee Plan provided by Yohm Technology. Yohm Technology is not obligated to issue any refund if the candidate fails to meet their responsibilities as specified in the agreement.</li>
+            <li><strong>Refund Percentage:</strong> If Yohm Technology fails to secure between 5 to 10 interviews to candidate by its services, candidate is eligible for a refund equivalent to 70%. If Yohm Technology successfully secures between 11 to 15 interviews to candidate through its services, candidate is eligible for a refund equivalent to 50%.</li>
+            <li><strong>Expense Deduction:</strong> The refund will be subjected to a deduction of less a monthly charge of $375, as stipulated in the agreement. This fee compensates for promotional campaigns, recruiter time, and backend systems utilized.</li>
+            <li><strong>Request for Refund:</strong> Candidates who meet the refund criteria must formally request a refund by submitting a written request to Yohm Technology on <strong>info@yohmtech.com</strong>.</li>
+            <li><strong>Refund Processing Time:</strong> Upon a valid refund request, Yohm Technology will review the request and verify the candidate’s eligibility. Once eligibility is confirmed, the refund will be processed within 30 days.</li>
+            <li><strong>Cancellation of Enrollment:</strong> It’s important to note that if a candidate chooses to cancel their enrollment in the Job Guarantee Plan during its term, no refund will be initiated.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="color:#fff; border:none;">YOHM TECHNOLOGY</h4>
+                <p>The Ω standard in professional IT recruitment worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refund.html">Refund Policy</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>SPECIALITIES</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Interview Support</li>
+                    <li><i class="fas fa-chevron-right"></i>Training</li>
+                    <li><i class="fas fa-chevron-right"></i>Staffing</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <p style="opacity:0.6; font-size: 14px;">info@yohmtech.com</p>
+                <p style="opacity:0.6; font-size: 14px; margin-top: 10px;">1007 N Orange St. Wilmington, DE</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:60px; font-size:11px; opacity:0.3; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+            &copy; 2024 YOHM TECHNOLOGY Ω. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>
