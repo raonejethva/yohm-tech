@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Support | Yohm Technology LLC</title>
+    <title>Interview Support | Yohm Technology</title>
     
     <!-- Professional Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -12,44 +12,54 @@
     
     <style>
         :root {
-            --brand-blue: #0038a8; 
-            --navy: #011d33;
-            --card-light: #eff6ff;
-            --breadcrumb-bg: #f1f7ff;
+            --brand-blue: #0066FF; 
+            --brand-glow: rgba(0, 102, 255, 0.4);
+            --navy: #0A192F;      
+            --card-blue: #F0F7FF;
             --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* --- GLOBAL SETUP --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; background: #fff; }
-        h1, h2, h3, h4, .brand-main { font-family: 'Montserrat', sans-serif; }
-        a { text-decoration: none; color: inherit; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* --- REVEAL ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- HEADER (Premium Fluent) --- */
+        header { 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 3000; 
+            border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+        }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 3100; text-decoration: none; }
+        .logo-box { 
+            width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; 
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+            box-shadow: 0 8px 16px var(--brand-glow);
+        }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; stroke-linecap: round; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.5px; display: block;}
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; display: block;}
 
-        /* --- HEADER (Consistent with Site) --- */
-        header { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
-        .brand-link { display: flex; align-items: center; gap: 14px; }
-        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; }
-        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; }
-        .brand-text { display: flex; flex-direction: column; }
-        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; }
-        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
-
-        .nav-menu { display: flex; gap: 25px; align-items: center; }
-        .nav-menu a { font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--navy); transition: 0.3s; }
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 11px; text-transform: uppercase; color: var(--navy); position: relative; }
         .nav-menu a:hover { color: var(--brand-blue); }
 
-        /* Mobile Hamburger Icon */
-        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; }
+        .btn-contact-nav { 
+            background: var(--brand-blue); color: white; padding: 11px 24px; border-radius: 8px; 
+            font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 11px; 
+            text-transform: uppercase; box-shadow: 0 4px 14px var(--brand-glow);
+        }
+        .btn-contact-nav:hover { transform: translateY(-2px); background: var(--navy); }
+
+        .hamburger { display: none; font-size: 24px; color: var(--navy); cursor: pointer; border: none; background: none; z-index: 3100; }
 
         /* --- BREADCRUMB HEADER --- */
-        .page-header { background-color: var(--breadcrumb-bg); padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .page-header { background-color: #f1f7ff; padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
         .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
         .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
@@ -57,75 +67,77 @@
 
         /* --- CONTENT SECTION --- */
         .support-content { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .support-text p { margin-bottom: 25px; color: #555; font-size: 15px; line-height: 1.8; text-align: justify; }
+        .support-text p { margin-bottom: 25px; color: #555; font-size: 16px; line-height: 1.8; text-align: justify; }
 
-        /* --- ROLES GRID (Matching Screenshot) --- */
+        /* --- ROLES GRID --- */
         .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
         .role-card { 
             padding: 30px 15px; border-radius: 15px; text-align: center; 
-            font-weight: 700; font-size: 13px; text-transform: uppercase; 
+            font-weight: 700; font-size: 12px; text-transform: uppercase; 
             letter-spacing: 0.5px; transition: 0.3s; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            min-height: 90px;
+            min-height: 90px; border: 1px solid #eee;
         }
-
-        /* Color Scheme from image */
         .card-dark { background-color: var(--navy); color: white; }
-        .card-light { background-color: var(--card-light); color: var(--navy); }
-        .role-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-light { background-color: var(--card-blue); color: var(--navy); }
+        .role-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--brand-blue); }
 
-        /* Bottom Row Centering logic for the last 2 items */
         .role-footer-row { grid-column: span 4; display: flex; justify-content: center; gap: 20px; margin-top: 0px; }
         .role-footer-row .role-card { width: calc(25% - 15px); }
 
-        /* --- CTA BANNER --- */
-        .cta-banner { background-color: var(--breadcrumb-bg); padding: 70px 40px; margin-top: 100px; border-radius: 30px; }
-        .cta-flex { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .cta-text h2 { font-size: 30px; color: var(--navy); font-weight: 800; line-height: 1.3; }
-        .btn-cta { background: var(--brand-blue); color: white; padding: 18px 40px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; }
-        .btn-cta:hover { background: var(--navy); transform: scale(1.05); }
-
         /* --- FOOTER --- */
-        footer { background: #010c16; color: white; padding: 80px 20px 30px; }
-        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; }
-        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 16px; }
-        .footer-col ul li { margin-bottom: 12px; opacity: 0.7; font-size: 14px; list-style: none; transition: 0.3s; }
-        .footer-col ul li:hover { opacity: 1; color: var(--brand-blue); transform: translateX(5px); }
+        footer { background: #050A11; color: white; padding: 80px 20px 40px; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 60px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 16px; text-transform: uppercase; }
+        .footer-col ul li { margin-bottom: 12px; opacity: 0.6; font-size: 14px; list-style: none; display: flex; align-items: center; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
 
+        /* --- MOBILE --- */
         @media (max-width: 992px) {
+            .hamburger { display: block; }
+            .nav-menu { 
+                position: fixed; top: 72px; right: -100%; width: 280px; height: 100vh;
+                background: white; flex-direction: column; padding: 40px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s; z-index: 2000;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-actions { display: none; }
             .header-flex { flex-direction: column; text-align: center; gap: 10px; }
             .role-grid { grid-template-columns: repeat(2, 1fr); }
             .role-footer-row { display: grid; grid-template-columns: repeat(2, 1fr); }
             .role-footer-row .role-card { width: 100%; }
-            .cta-flex { flex-direction: column; text-align: center; }
-            .nav-menu { display: none; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Fixed Navigation) -->
     <header>
         <div class="nav-container">
             <a href="index.html" class="brand-link">
                 <div class="logo-box">
-                    <svg class="logo-svg" viewBox="0 0 100 100">
-                        <path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" stroke-width="8"/>
-                        <path d="M50 35 V 15" stroke-width="10" stroke="#fff" />
-                    </svg>
+                    <svg class="logo-svg" viewBox="0 0 100 100"><path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" /><path d="M50 35 V 15" stroke-width="10" stroke="#fff" /></svg>
                 </div>
                 <div class="brand-text">
                     <span class="brand-main">YOHM TECHNOLOGY</span>
                     <span class="brand-sub">Placement Agency</span>
                 </div>
             </a>
+
             <nav class="nav-menu" id="nav-list">
                 <a href="index.html">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="recruitment-interview-process.html">Process</a>
+                <a href="interview-support.html" style="color: var(--brand-blue);">Support</a>
                 <a href="staffing.html">Staffing</a>
-                <a href="interview-support.html" style="color: var(--brand-blue);">Interview Support</a>
                 <a href="refer.html">Refer & Earn</a>
-                <a href="contact.html">Contact Us</a>
             </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-contact-nav">Contact Us</a>
+            </div>
+
             <button class="hamburger" id="mobile-btn"><i class="fas fa-bars"></i></button>
         </div>
     </header>
@@ -138,16 +150,16 @@
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Content -->
     <section class="support-content">
-        <div class="support-text reveal">
+        <div class="support-text">
             <p>Yohm Technology Placement extends a crucial service to job seekers through our comprehensive interview support offerings. With a diverse range of resources including articles, webinars, videos, virtual coaching sessions, and interactive workshops, we equip job seekers with a robust toolkit to excel in interviews and elevate their chances of success.</p>
             <p>Our commitment extends to personalized attention, offering one-on-one coaching and resume reviews. This tailored approach allows individuals to polish their application materials and enhance their interview prowess.</p>
             <p>Our interview support services are a game-changer for individuals who may grapple with interview-related anxiety or seek to boost their confidence.</p>
         </div>
 
-        <!-- Role Grid (Replicating Image exactly) -->
-        <div class="role-grid reveal">
+        <!-- Grid -->
+        <div class="role-grid">
             <div class="role-card card-dark">Java Developer</div>
             <div class="role-card card-light">Python Developer</div>
             <div class="role-card card-dark">Network Engineer</div>
@@ -168,61 +180,47 @@
                 <div class="role-card card-light">QA Tester</div>
             </div>
         </div>
-
-        <!-- CTA Section -->
-        <div class="cta-banner reveal">
-            <div class="cta-flex">
-                <div class="cta-text">
-                    <h2>Did not find what you are searching for?<br>Connect with us:</h2>
-                </div>
-                <button class="btn-cta" onclick="location.href='contact.html'">Connect with Us</button>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4 style="color:#fff; border:none;">YOHM TECHNOLOGY</h4>
-                <p style="opacity: 0.5; font-size: 13px;">The Ω standard in professional recruitment worldwide.</p>
+                <h4 style="color:white; border:none; font-size: 20px;">YOHM TECH</h4>
+                <p>The Ω standard in professional technical recruitment worldwide.</p>
             </div>
             <div class="footer-col">
-                <h4>Navigation</h4>
+                <h4>Access</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="refer.html">Refer and Earn</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>Legal</h4>
                 <ul>
-                    <li>IT Placement</li>
-                    <li>Interview Support</li>
-                    <li>Staffing Solutions</li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refund.html">Refund Policy</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contact</h4>
-                <p style="opacity:0.5; font-size: 13px;">info@yohmtech.com</p>
-                <p style="opacity:0.5; font-size: 13px; margin-top: 10px;">Wilmington, DE, 19801</p>
+                <p style="opacity:0.6; font-size: 13px;">info@yohmtech.com</p>
+                <p style="opacity:0.6; font-size: 13px; margin-top: 10px;">Wilmington, DE, 19801</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
         // Hamburger Menu Toggle
         const mobileBtn = document.getElementById('mobile-btn');
         const navList = document.getElementById('nav-list');
-        mobileBtn.addEventListener('click', () => navList.classList.toggle('active'));
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const isOpened = navList.classList.contains('active');
+            mobileBtn.innerHTML = isOpened ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
     </script>
 </body>
 </html>
