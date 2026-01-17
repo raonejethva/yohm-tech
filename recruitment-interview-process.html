@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment & Interview Process | Yohm Technology</title>
+    
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-blue: #0066FF; 
+            --brand-glow: rgba(0, 102, 255, 0.4);
+            --navy: #0A192F;      
+            --white: #ffffff;
+            --light-blue: #f1f7ff;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.8; background: #fff; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HEADER (Premium Nav) --- */
+        header { 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 2000; 
+            border-bottom: 1px solid rgba(0, 102, 255, 0.05);
+        }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .brand-link { display: flex; align-items: center; gap: 14px; z-index: 2100; }
+        .logo-box { width: 45px; height: 45px; background: var(--brand-blue); border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; box-shadow: 0 8px 16px var(--brand-glow); }
+        .logo-svg { width: 25px; height: 25px; fill: none; stroke: white; stroke-width: 8; stroke-linecap: round; }
+        .brand-main { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.5px; }
+        .brand-sub { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { font-weight: 700; font-size: 11px; text-transform: uppercase; color: var(--navy); }
+        .nav-menu a:hover { color: var(--brand-blue); }
+
+        /* --- BREADCRUMB HEADER --- */
+        .page-header { background-color: var(--light-blue); padding: 50px 20px; border-bottom: 1px solid #e2e8f0; }
+        .header-flex { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .page-header h1 { font-size: 32px; color: var(--navy); font-weight: 800; }
+        .breadcrumb { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .breadcrumb span { color: var(--brand-blue); margin-left: 5px; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .split-layout { display: flex; gap: 80px; align-items: center; flex-wrap: wrap; }
+        .text-side { flex: 1.5; min-width: 350px; }
+        .text-side h2 { font-size: 28px; color: var(--brand-blue); margin-bottom: 30px; }
+        
+        .point-list { list-style: none; }
+        .point-list li { position: relative; padding-left: 30px; margin-bottom: 20px; color: #555; font-size: 15px; }
+        .point-list li::before { content: '•'; position: absolute; left: 0; color: var(--brand-blue); font-size: 24px; line-height: 1; }
+
+        /* Graphical Side (The Tilted Box & Image) */
+        .image-side { flex: 1; position: relative; display: flex; justify-content: center; min-width: 350px; }
+        .image-bg-box { position: absolute; width: 320px; height: 320px; background: var(--navy); border-radius: 30px; transform: rotate(10deg); z-index: 1; top: 15px; }
+        .img-main { position: relative; z-index: 2; width: 350px; height: 350px; border-radius: 30px; object-fit: cover; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* --- CTA BANNER --- */
+        .cta-banner { background-color: var(--light-blue); padding: 70px 40px; margin: 80px 20px; border-radius: 30px; }
+        .cta-flex { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .cta-text h2 { font-size: 30px; color: var(--navy); font-weight: 800; line-height: 1.3; }
+        .btn-cta { background: var(--brand-blue); color: white; padding: 18px 40px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s; font-size: 14px; }
+        .btn-cta:hover { transform: scale(1.05); background: var(--navy); }
+
+        /* --- FOOTER --- */
+        footer { background: #050A11; color: white; padding: 80px 20px 40px; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 60px; }
+        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--brand-blue); display: inline-block; padding-bottom: 5px; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-col ul li { margin-bottom: 15px; opacity: 0.6; font-size: 14px; list-style: none; transition: 0.3s; display: flex; align-items: center; }
+        .footer-col ul li i { color: var(--brand-blue); font-size: 10px; margin-right: 12px; }
+
+        @media (max-width: 992px) {
+            .header-flex, .split-layout, .cta-flex, .footer-grid { flex-direction: column; text-align: center; }
+            .img-main, .image-bg-box { width: 300px; height: 300px; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 100 100"><path d="M30 75 C 20 75, 20 35, 50 35 C 80 35, 80 75, 70 75" fill="none" stroke="#fff" /><path d="M50 35 V 15" stroke-width="10" stroke="#fff" /></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">YOHM TECHNOLOGY</span>
+                    <span class="brand-sub">Placement Agency</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="staffing.html">Staffing</a>
+                <a href="refer.html">Refer & Earn</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="page-header">
+        <div class="header-flex">
+            <h1>Recruitment & Interview Process</h1>
+            <div class="breadcrumb">Home <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 10px; opacity: 0.3;"></i> <span>Recruitment and Interview Process</span></div>
+        </div>
+    </section>
+
+    <!-- Content: Recruitment -->
+    <section class="content-section">
+        <div class="split-layout">
+            <div class="text-side reveal">
+                <h2>Recruitment</h2>
+                <ul class="point-list">
+                    <li>Yohm Technology is dedicated to crafting optimal job descriptions that swiftly connect you with the right talent.</li>
+                    <li>Our specialized recruiters supplement this with data-driven market analysis, shaping unique recruitment strategies to cater to evolving demands.</li>
+                    <li>Yohm’s talent pool spans diverse levels and sectors. This enables our adept full-service recruiters to pinpoint and engage the market’s most promising candidates, ensuring a perfect fit for your needs.</li>
+                    <li>With a commitment to swift action, we aim to present a selection of top-quality candidates within the first 48-72 hours of receiving your open criteria.</li>
+                    <li>Once the criteria are set, our recruitment experts dive into meticulous screening and interviews, aligning with your expectations to unearth exceptional candidates.</li>
+                </ul>
+            </div>
+            <div class="image-side reveal">
+                <div class="image-bg-box"></div>
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80" alt="Recruitment Team" class="img-main">
+            </div>
+        </div>
+    </section>
+
+    <!-- Content: Interview Process -->
+    <section class="content-section" style="padding-top: 0;">
+        <div class="reveal">
+            <h2 style="font-size: 28px; color: var(--brand-blue); margin-bottom: 30px;">Interview Process</h2>
+            <ul class="point-list">
+                <li>Yohm Technology is committed to equip the clients with comprehensive insights, offering CVs, resumes, and relevant data to ensure a thorough evaluation. Our interview procedure takes on a holistic approach.</li>
+                <li>Once interviews conclude, our recruiting team maintains a proactive role, guiding the process until the position is filled. We understand the value of streamlining this journey, allowing our clients to focus on their core business operations.</li>
+                <li>For added convenience, we extend background check packages upon request. Our comprehensive offerings, including Reference Checks, E-Verify, and Universal Background Screening, empower our clients to make informed choices.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-banner reveal">
+        <div class="cta-flex">
+            <div class="cta-text">
+                <h2>Did not find what you are searching for?<br>Connect with us:</h2>
+            </div>
+            <button class="btn-cta" onclick="location.href='contact.html'">Connect with Us</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="color:white; border:none; font-size: 20px;">YOHM TECH</h4>
+                <p style="opacity: 0.5; font-size: 13px;">The Ω standard in professional IT recruitment worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="refer.html">Refer and Earn</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Recruitment Process</li>
+                    <li><i class="fas fa-chevron-right"></i>IT Job Placement</li>
+                    <li><i class="fas fa-chevron-right"></i>Career Guidance</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Specialities</h4>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i>Interview Support</li>
+                    <li><i class="fas fa-chevron-right"></i>Training</li>
+                    <li><i class="fas fa-chevron-right"></i>Staffing</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:60px; font-size:11px; opacity:0.3; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+            &copy; 2024 YOHM TECHNOLOGY Ω. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
